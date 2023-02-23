@@ -51,7 +51,7 @@ const createManagerCard = (employee) => {
 
 <div>
 <p>ID: ${employee.getId()}</p>
-<a href="mailto:${employee.getEmail()}>Email: ${employee.getEmail()}</a>
+<a href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a>
 <p>Office number: ${employee.getOfficeNumber()}</p>
 </div>
 </div>`;
@@ -66,7 +66,7 @@ const createInternCard = (employee) => {
 
 <div>
 <p>ID: ${employee.getId()}</p>
-<a href="mailto:${employee.getEmail()}>Email: ${employee.getEmail()}</a>
+<a href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a>
 <p>School: ${employee.getSchool()}</p>
 </div>
 </div>`;
@@ -81,8 +81,8 @@ const createEngineerCard = (employee) => {
 
 <div>
 <p>ID: ${employee.getId()}</p>
-<a href="mailto:${employee.getEmail()}>Email: ${employee.getEmail()}</a>
-<a href="github.com/${employee.getGithub()}>GitHub: ${employee.getGithub()}</a>
+<p><a href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a></p>
+<p><a href="github.com/${employee.getGithub()}">GitHub: ${employee.getGithub()}</a></p>
 </div>
 </div>`;
 };
