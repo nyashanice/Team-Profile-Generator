@@ -15,11 +15,5 @@ describe("Intern", () => {
       expect(employee.email).toEqual("email@email.com");
       expect(employee.school).toEqual("Georgia Tech");
     });
-
-    //     it("should throw an error if provided no arguments", () => {
-    //       const example = () => new Intern();
-
-    //       expect(example).toThrow();
-    //     });
   });
 });

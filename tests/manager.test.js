@@ -10,11 +10,5 @@ describe("Manager", () => {
       expect(employee.email).toEqual("email@email.com");
       expect(employee.officeNumber).toEqual(105);
     });
-
-    //     it("should throw an error if provided no arguments", () => {
-    //       const example = () => new Manager();
-
-    //       expect(example).toThrow();
-    //     });
   });
 });

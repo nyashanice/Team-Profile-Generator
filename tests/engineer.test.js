@@ -10,11 +10,5 @@ describe("Engineer", () => {
       expect(employee.email).toEqual("email@email.com");
       expect(employee.github).toEqual("janedoe");
     });
-
-    //     it("should throw an error if provided no arguments", () => {
-    //       const example = () => new Engineer();
-
-    //       expect(example).toThrow();
-    //     });
   });
 });

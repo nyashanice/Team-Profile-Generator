@@ -6,8 +6,12 @@ const generateHTML = (team) => {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
+<header>
+<p id="pageTitle">Members Only</p>
+</header>
 <body>
 <main>`;
 
@@ -43,46 +47,46 @@ const generateEmployeeCards = (team) => {
 };
 
 const createManagerCard = (employee) => {
-  return `<div>
-<div>
+  return `<div class="card">
+<div class="cardHeader">
 <h1>${employee.getName()}</h1>
 <h2>${employee.getRole()}</h2>
 </div>
 
-<div>
-<p>ID: ${employee.getId()}</p>
-<a href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a>
-<p>Office number: ${employee.getOfficeNumber()}</p>
+<div class="cardBody">
+<p class="contents">ID: ${employee.getId()}</p>
+<a class="contents" href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a>
+<p class="contents">Office number: ${employee.getOfficeNumber()}</p>
 </div>
 </div>`;
 };
 
 const createInternCard = (employee) => {
-  return `<div>
-<div>
+  return `<div class="card">
+<div class="cardHeader">
 <h1>${employee.getName()}</h1>
 <h2>${employee.getRole()}</h2>
 </div>
 
-<div>
-<p>ID: ${employee.getId()}</p>
-<a href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a>
-<p>School: ${employee.getSchool()}</p>
+<div class="cardBody">
+<p class="contents">ID: ${employee.getId()}</p>
+<a class="contents" href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a>
+<p class="contents">School: ${employee.getSchool()}</p>
 </div>
 </div>`;
 };
 
 const createEngineerCard = (employee) => {
-  return `<div>
-<div>
+  return `<div class="card">
+<div class="cardHeader">
 <h1>${employee.getName()}</h1>
 <h2>${employee.getRole()}</h2>
 </div>
 
-<div>
-<p>ID: ${employee.getId()}</p>
-<p><a href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a></p>
-<p><a href="github.com/${employee.getGithub()}">GitHub: ${employee.getGithub()}</a></p>
+<div class="cardBody">
+<p class="contents">ID: ${employee.getId()}</p>
+<p class="contents"><a href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a></p>
+<p class="contents"><a href="github.com/${employee.getGithub()}">GitHub: ${employee.getGithub()}</a></p>
 </div>
 </div>`;
 };

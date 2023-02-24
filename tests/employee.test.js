@@ -9,12 +9,5 @@ describe("Employee", () => {
       expect(employee.id).toEqual(1234);
       expect(employee.email).toEqual("email@email.com");
     });
-
-    // it("should throw an error if provided no arguments", () => {
-    //   const example = () => new Employee();
-    //   const err = new Error("Must provide valid inputs");
-
-    //   expect(example).toThrowError(err);
-    // });
   });
 });
