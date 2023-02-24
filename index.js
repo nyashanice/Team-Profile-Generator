@@ -32,7 +32,7 @@ const init = async () => {
   ]);
   // adds manager information to team array as an object
   teamArray.push(
-    new Engineer(
+    new Manager(
       managerData.name,
       managerData.id,
       managerData.email,
@@ -54,7 +54,6 @@ const main = async () => {
       name: "action",
     },
   ]);
-  // console.log(answer);
   switch (answer.action) {
     case "Add an Intern":
       addIntern();
@@ -147,16 +146,3 @@ const buildTeamFile = () => {
     console.log(error);
   }
 };
-
-// try {
-//   fs.writeFileSync(
-//     "dist/index.html",
-//     generateHTML([
-//       new Manager("Nya", 1, "nya@email.com", 35),
-//       new Engineer("Alex", 5, "alex@email.com", "nyatyus"),
-//       new Intern("Mike", 12, "mike@email.com", "Texas"),
-//     ])
-//   );
-// } catch (error) {
-//   console.log(error);
-// }

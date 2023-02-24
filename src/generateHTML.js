@@ -25,8 +25,6 @@ const generateHTML = (team) => {
 
 // makes employee cards to send to html file
 const generateEmployeeCards = (team) => {
-  console.log(team);
-
   let htmlString = "";
 
   //iterates through team to create cards
@@ -87,7 +85,7 @@ const createEngineerCard = (employee) => {
   <div class="cardBody">
     <p class="contents">ID: ${employee.getId()}</p>
     <p class="contents"><a href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a></p>
-    <p class="contents"><a href="github.com/${employee.getGithub()}">GitHub: ${employee.getGithub()}</a></p>
+    <p class="contents"><a href="https://www.github.com/${employee.getGithub()}">GitHub: ${employee.getGithub()}</a></p>
   </div>
 </div>`;
 };
