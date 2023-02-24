@@ -18,4 +18,4 @@ If you click on the email address of any team member, you will be directed to yo
 
 To run the tests, type `npm run test` into the command line. All tests can be found in the tests folder.
 
-[Watch demo video here!](video/Team%20Profile%20Generator.mp4)
+[Watch demo video here!](video/Team%20Profile%20Generator%209.17.05%20PM.mp4)
