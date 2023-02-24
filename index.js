@@ -2,10 +2,11 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
+const generateHTML = require("./src/generateHTML.js");
 const Intern = require("./lib/Intern");
 const teamArray = [];
-const generateHTML = require("./src/generateHTML.js");
 
+// starting function that creates team manager
 const init = async () => {
   const managerData = await inquirer.prompt([
     {
@@ -29,6 +30,7 @@ const init = async () => {
       name: "officeNum",
     },
   ]);
+  // adds manager information to team array as an object
   teamArray.push(
     new Engineer(
       managerData.name,
@@ -39,8 +41,10 @@ const init = async () => {
   );
   main();
 };
-//init();
 
+init();
+
+// prompts user to add to team or complete team
 const main = async () => {
   const answer = await inquirer.prompt([
     {
@@ -50,7 +54,7 @@ const main = async () => {
       name: "action",
     },
   ]);
-  console.log(answer);
+  // console.log(answer);
   switch (answer.action) {
     case "Add an Intern":
       addIntern();
@@ -63,8 +67,8 @@ const main = async () => {
   }
 };
 
+// user input for intern info
 const addIntern = async () => {
-  // Get user input for name, id, email, and school
   const internData = await inquirer.prompt([
     {
       type: "input",
@@ -87,6 +91,7 @@ const addIntern = async () => {
       name: "school",
     },
   ]);
+  // adds data to team array
   teamArray.push(
     new Intern(
       internData.name,
@@ -98,8 +103,8 @@ const addIntern = async () => {
   main();
 };
 
+// user input for engineer info
 const addEngineer = async () => {
-  // Get user input for name, id, email, and github
   const engineerData = await inquirer.prompt([
     {
       type: "input",
@@ -122,6 +127,7 @@ const addEngineer = async () => {
       name: "github",
     },
   ]);
+  // adds data to team array
   teamArray.push(
     new Engineer(
       engineerData.name,
@@ -133,8 +139,8 @@ const addEngineer = async () => {
   main();
 };
 
+// generates HTML file
 const buildTeamFile = () => {
-  //generate the HTML
   try {
     fs.writeFileSync("dist/index.html", generateHTML(teamArray));
   } catch (error) {
@@ -142,15 +148,15 @@ const buildTeamFile = () => {
   }
 };
 
-try {
-  fs.writeFileSync(
-    "dist/index.html",
-    generateHTML([
-      new Manager("Nya", 1, "nya@email.com", 35),
-      new Engineer("Alex", 5, "alex@email.com", "nyatyus"),
-      new Intern("Mike", 12, "mike@email.com", "Texas"),
-    ])
-  );
-} catch (error) {
-  console.log(error);
-}
+// try {
+//   fs.writeFileSync(
+//     "dist/index.html",
+//     generateHTML([
+//       new Manager("Nya", 1, "nya@email.com", 35),
+//       new Engineer("Alex", 5, "alex@email.com", "nyatyus"),
+//       new Intern("Mike", 12, "mike@email.com", "Texas"),
+//     ])
+//   );
+// } catch (error) {
+//   console.log(error);
+// }

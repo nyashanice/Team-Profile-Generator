@@ -1,5 +1,5 @@
+// HTML contents to be sent to html file
 const generateHTML = (team) => {
-  //will be an array of classes
   htmlStart = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,32 +7,29 @@ const generateHTML = (team) => {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>Team Profile Generator</title>
 </head>
+
 <header>
-<p id="pageTitle">Members Only</p>
+  <p id="pageTitle">Members Only</p>
 </header>
 <body>
 <main>`;
-
-  htmlEnd = `</main></body></html>`;
+  htmlEnd = `
+  </main>
+  </body>
+  </html>`;
   htmlBody = generateEmployeeCards(team);
   return htmlStart + htmlBody + htmlEnd;
 };
 
+// makes employee cards to send to html file
 const generateEmployeeCards = (team) => {
-  console.log("Making the body");
   console.log(team);
 
-  // itNeedsTheTeam
-  // THE INDEX 0 OF OUR ARRAY IS THE MANAGER RIGHT
-  // CREATE THE MANAGER CARD WITH INDEX 0 AND THEN REMOVE IT FROM THE ARRAY
-  // we know for certain index 0 is the manager card
-  // We meed to make an EngineerCard and an InternCard
-  // for our html file we also need the
   let htmlString = "";
 
-  //iterated through the team, build your htmlString
+  //iterates through team to create cards
   team.forEach((employee) => {
     if (employee.getRole() == "Manager") {
       htmlString += createManagerCard(employee);
@@ -46,48 +43,52 @@ const generateEmployeeCards = (team) => {
   return htmlString;
 };
 
+// cards for each role in the way they'll be populated in HTML
 const createManagerCard = (employee) => {
-  return `<div class="card">
-<div class="cardHeader">
-<h1>${employee.getName()}</h1>
-<h2>${employee.getRole()}</h2>
-</div>
+  return `
+<div class="card">
+  <div class="cardHeader">
+    <h1>${employee.getName()}</h1>
+    <h2>${employee.getRole()}</h2>
+  </div>
 
-<div class="cardBody">
-<p class="contents">ID: ${employee.getId()}</p>
-<a class="contents" href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a>
-<p class="contents">Office number: ${employee.getOfficeNumber()}</p>
-</div>
+  <div class="cardBody">
+    <p class="contents">ID: ${employee.getId()}</p>
+    <a class="contents" href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a>
+    <p class="contents">Office number: ${employee.getOfficeNumber()}</p>
+  </div>
 </div>`;
 };
 
 const createInternCard = (employee) => {
-  return `<div class="card">
-<div class="cardHeader">
-<h1>${employee.getName()}</h1>
-<h2>${employee.getRole()}</h2>
-</div>
+  return `
+<div class="card">
+  <div class="cardHeader">
+    <h1>${employee.getName()}</h1>
+    <h2>${employee.getRole()}</h2>
+  </div>
 
-<div class="cardBody">
-<p class="contents">ID: ${employee.getId()}</p>
-<a class="contents" href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a>
-<p class="contents">School: ${employee.getSchool()}</p>
-</div>
+  <div class="cardBody">
+    <span><p class="contents">ID: ${employee.getId()}</p></span>
+    <span><a class="contents" href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a></span>
+    <span><p class="contents">School: ${employee.getSchool()}</p></span>
+  </div>
 </div>`;
 };
 
 const createEngineerCard = (employee) => {
-  return `<div class="card">
-<div class="cardHeader">
-<h1>${employee.getName()}</h1>
-<h2>${employee.getRole()}</h2>
-</div>
+  return `
+<div class="card">
+  <div class="cardHeader">
+    <h1>${employee.getName()}</h1>
+    <h2>${employee.getRole()}</h2>
+  </div>
 
-<div class="cardBody">
-<p class="contents">ID: ${employee.getId()}</p>
-<p class="contents"><a href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a></p>
-<p class="contents"><a href="github.com/${employee.getGithub()}">GitHub: ${employee.getGithub()}</a></p>
-</div>
+  <div class="cardBody">
+    <p class="contents">ID: ${employee.getId()}</p>
+    <p class="contents"><a href="mailto:${employee.getEmail()}">Email: ${employee.getEmail()}</a></p>
+    <p class="contents"><a href="github.com/${employee.getGithub()}">GitHub: ${employee.getGithub()}</a></p>
+  </div>
 </div>`;
 };
 
